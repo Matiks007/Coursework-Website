@@ -126,7 +126,7 @@ public class main {
 
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
-            System.out.println("Error: Something as gone wrong. Please contact the administrator with the error code WC-WA.");
+            System.out.println("Error: Something as gone wrong. Please contact the administrator with the error code UP-DB.");
         }
         closeDatabase();
     }

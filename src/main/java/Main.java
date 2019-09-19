@@ -8,7 +8,7 @@ import org.sqlite.SQLiteConfig;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-//Check if works 22
+//Check if works 22 22
 
 
 public class Main {

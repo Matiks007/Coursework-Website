@@ -8,6 +8,8 @@ import org.sqlite.SQLiteConfig;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+//Check if works
+
 
 public class Main {
 

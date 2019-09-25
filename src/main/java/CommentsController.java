@@ -19,7 +19,8 @@ public class CommentsController {
                 String Username = results.getString(2);
                 int likes = results.getInt(3);
                 int dislikes = results.getInt(4);
-                System.out.println(CommentID + " " + Username + " " + likes + " " + dislikes);
+                String date = results.getString(5);
+                System.out.println(CommentID + " " + Username + " " + likes + " " + dislikes + " " + date);
             }
 
         } catch (Exception exception) {

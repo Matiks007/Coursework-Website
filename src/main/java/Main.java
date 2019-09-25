@@ -21,8 +21,8 @@ public class Main {
         public static void main(String[] args) {
             openDatabase("Users.db");
             UsersController.listUsers();
-            JobsController.insertJob("Painting","Will perform doecorators stuff",2.02);
             JobsController.listJobs();
+            CommentsController.listComments();
             closeDatabase();
 
         }

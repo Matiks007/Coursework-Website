@@ -41,7 +41,7 @@ public class Main {
                 config.enforceForeignKeys(true);
                 //Open the database file
                 db = DriverManager.getConnection("jdbc:sqlite:resources/" + dbFile, config.toProperties());
-               //Output message when succesfully finished
+               //Output message when successfully finished
                 System.out.println("Database connection successfully established.");
             } catch (Exception exception) {
                 //Output error when established incorrectly

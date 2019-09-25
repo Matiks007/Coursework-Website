@@ -1,5 +1,5 @@
 /*
-* This is Mateusz Kraszewski's second year project courswork.
+* This is Mateusz Kraszewski's second year project coursework.
 * You are currently in the Main method.
 *
 */
@@ -20,11 +20,10 @@ public class Main {
         //Main Method
         public static void main(String[] args) {
             openDatabase("Users.db");
-            UserController.listUsers();
+            UsersController.listUsers();
+            JobsController.insertJob("Painting","Will perform doecorators stuff",2.02);
+            JobsController.listJobs();
             closeDatabase();
-            
-
-
 
         }
 

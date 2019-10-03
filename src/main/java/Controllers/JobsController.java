@@ -1,4 +1,4 @@
-//Imports for sql
+package Controllers;//Imports for sql
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -11,7 +11,7 @@ public class JobsController {
 
         try {
 
-            PreparedStatement ps = Main.db.prepareStatement("SELECT JobID, JobName, JobDescription, JobPrice FROM Jobs");
+            PreparedStatement ps = Server.Main.db.prepareStatement("SELECT JobID, JobName, JobDescription, JobPrice FROM Jobs");
 
             ResultSet results = ps.executeQuery();
             while (results.next()) {
@@ -34,7 +34,7 @@ public class JobsController {
     public static void insertJob(String TJobName, String TJobDescription, Double TPrice){
 
         try {
-            PreparedStatement ps = Main.db.prepareStatement("INSERT INTO Jobs (JobName, JobDescription, JobPrice) VALUES (?, ?, ?)");
+            PreparedStatement ps = Server.Main.db.prepareStatement("INSERT INTO Jobs (JobName, JobDescription, JobPrice) VALUES (?, ?, ?)");
 
             ps.setString(1,  TJobName);
             ps.setString(2,  TJobDescription);
@@ -53,7 +53,7 @@ public class JobsController {
     public static void updateJob(String TJobName, String TJobDescription, Double TPrice){
 
         try {
-            PreparedStatement ps = Main.db.prepareStatement("UPDATE Jobs SET JobName = ?, JobDescription = ?,  JobPrice = ? WHERE JobID = ?");
+            PreparedStatement ps = Server.Main.db.prepareStatement("UPDATE Jobs SET JobName = ?, JobDescription = ?,  JobPrice = ? WHERE JobID = ?");
             ps.setString(1,  TJobName);
             ps.setString(2,  TJobDescription);
             ps.setDouble(3,  TPrice);
@@ -72,7 +72,7 @@ public class JobsController {
     public static void deleteJob(String TJobName) {
 
         try {
-            PreparedStatement ps = Main.db.prepareStatement("DELETE FROM Jobs WHERE JobName = ?");
+            PreparedStatement ps = Server.Main.db.prepareStatement("DELETE FROM Jobs WHERE JobName = ?");
             ps.setString(1, TJobName);
 
         } catch (Exception e) {

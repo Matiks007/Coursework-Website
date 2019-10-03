@@ -1,4 +1,5 @@
 //Import sql stuff
+package Controllers;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -11,7 +12,7 @@ public class CommentsController {
 
         try {
 
-            PreparedStatement ps = Main.db.prepareStatement("SELECT CommentID, Username, Likes, Dislikes, Date FROM Comments");
+            PreparedStatement ps = Server.Main.db.prepareStatement("SELECT CommentID, Username, Likes, Dislikes, Date FROM Comments");
 
             ResultSet results = ps.executeQuery();
             while (results.next()) {
@@ -36,7 +37,7 @@ public class CommentsController {
     public static void insertComment(String TUsername, int TLikes, int TDislikes, String Tdate){
 
         try {
-            PreparedStatement ps = Main.db.prepareStatement("INSERT INTO Comments (Username, Likes, Dislikes, Date) VALUES (?, ?, ?,?)");
+            PreparedStatement ps = Server.Main.db.prepareStatement("INSERT INTO Comments (Username, Likes, Dislikes, Date) VALUES (?, ?, ?,?)");
 
             ps.setString(1,  TUsername);
             ps.setInt(2,  TLikes);
@@ -56,7 +57,7 @@ public class CommentsController {
     public static void updateComment(String TUsername, int TLikes, int TDislikes, String Tdate){
 
         try {
-            PreparedStatement ps = Main.db.prepareStatement("UPDATE Comments SET Username = ?, Likes = ?,  Dislikes = ?, Date = ? WHERE CommentID = ?");
+            PreparedStatement ps = Server.Main.db.prepareStatement("UPDATE Comments SET Username = ?, Likes = ?,  Dislikes = ?, Date = ? WHERE CommentID = ?");
             ps.setString(1,  TUsername);
             ps.setInt(2,  TLikes);
             ps.setInt(3,  TDislikes);
@@ -76,7 +77,7 @@ public class CommentsController {
     public static void deleteComment(String TCommentID) {
 
         try {
-            PreparedStatement ps = Main.db.prepareStatement("DELETE FROM Comments WHERE CommentID = ?");
+            PreparedStatement ps = Server.Main.db.prepareStatement("DELETE FROM Comments WHERE CommentID = ?");
             ps.setString(1, TCommentID);
 
         } catch (Exception e) {

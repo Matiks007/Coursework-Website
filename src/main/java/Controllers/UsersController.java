@@ -1,19 +1,48 @@
+package Controllers;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+
+
+@Path("users/")
 public class UsersController {
 
     /*
      * List the contents of the users database
      */
-    public static void listUsers() {
+    @GET
+    @Path("list/")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String listUsers() {
+        System.out.println("users/list");
+        JSONArray list = new JSONArray();
 
         try {
 
-            PreparedStatement ps = Main.db.prepareStatement("SELECT UserID, UserName, Password, Email, FirstName, LastName, Gender, DateofBirth FROM Users");
+            PreparedStatement ps = Server.Main.db.prepareStatement("SELECT UserID, UserName, Password, Email, FirstName, LastName, Gender, DateofBirth FROM Users");
 
             ResultSet results = ps.executeQuery();
             while (results.next()) {
+
+                JSONObject item = new JSONObject();
+                item.put("id", results.getInt(1));
+                item.put("User Name", results.getString(2));
+                item.put("Password", results.getString(3));
+                item.put("Email", results.getString(4));
+                item.put("First Name", results.getString(5));
+                item.put("Last Name", results.getString(6));
+                item.put("Gender", results.getString(7));
+                item.put("Date of Birth", results.getString(8));
+                list.add(item);
+
                 int userID = results.getInt(1);
                 String userName = results.getString(2);
                 String password = results.getString(3);
@@ -24,10 +53,11 @@ public class UsersController {
                 String dob = results.getString(8);
                 System.out.println(userID + " " + firstName + " " + lastName + " " + userName + " "+ password + " " + gender + " " + email + " " + dob);
             }
-
+            return list.toString();
         } catch (Exception exception) {
             System.out.println("Database error: " + exception.getMessage());
             System.out.println("Something went wrong with listing the users");
+            return "{\"error\": \"Unable to list items, please see server console for more info.\"}";
         }
 
 
@@ -36,7 +66,7 @@ public class UsersController {
     //Add to the database
     public static void insertUser(String TUsername, String TPassword, String TEmail, String TFirstName, String TLastName, String TGender, String TDateofBirth ){
         try {
-            PreparedStatement ps = Main.db.prepareStatement("INSERT INTO Users (Username, Password, Email, FirstName, LastName, Gender, DateofBirth) VALUES (?, ?, ?,?,?,?,?)");
+            PreparedStatement ps = Server.Main.db.prepareStatement("INSERT INTO Users (Username, Password, Email, FirstName, LastName, Gender, DateofBirth) VALUES (?, ?, ?,?,?,?,?)");
 
             ps.setString(1,  TUsername);
             ps.setString(2,  TPassword);
@@ -59,7 +89,7 @@ public class UsersController {
     public static void updateUser(String TUsername, String TPassword, String TEmail, String TFirstName, String TLastName, String TGender, String TDateofBirth){
 
         try {
-            PreparedStatement ps = Main.db.prepareStatement("UPDATE Users SET Password = ?, Email = ?,  FirstName = ?, LastName = ?, Gender, DateofBirth WHERE UserName = ?");
+            PreparedStatement ps = Server.Main.db.prepareStatement("UPDATE Users SET Password = ?, Email = ?,  FirstName = ?, LastName = ?, Gender, DateofBirth WHERE UserName = ?");
             ps.setString(1,  TPassword);
             ps.setString(2,  TEmail);
             ps.setString(3,  TFirstName);
@@ -82,7 +112,7 @@ public class UsersController {
     public static void deleteUser(String TUsername) {
 
         try {
-        PreparedStatement ps = Main.db.prepareStatement("DELETE FROM Users WHERE Username = ?");
+        PreparedStatement ps = Server.Main.db.prepareStatement("DELETE FROM Users WHERE Username = ?");
         ps.setString(1, TUsername);
 
         } catch (Exception e) {

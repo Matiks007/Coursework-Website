@@ -7,7 +7,7 @@ public class FavouritesController {
 
     //List the contents of the Favourites Table
 
-    public static void listComments() {
+    public static void listFavourites() {
 
         try {
 

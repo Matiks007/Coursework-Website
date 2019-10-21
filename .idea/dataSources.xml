@@ -1,29 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Users" uuid="9cb36a7d-6b6d-4616-9302-5f95af557328">
+    <data-source source="LOCAL" name="Users" uuid="5710722b-87ea-41fd-9744-c2aba8559fef">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:U:\Computer science\Y2\Coursework\Coursework-Website\resources\Users.db</jdbc-url>
-      <driver-properties>
-        <property name="enable_load_extension" value="true" />
-      </driver-properties>
-    </data-source>
-    <data-source source="LOCAL" name="SQLite - Users.db" uuid="47a93b47-d22b-47b1-9fe4-b2c347324256">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../../../Y1/Coursework-Website/resources/Users.db</jdbc-url>
-      <driver-properties>
-        <property name="enable_load_extension" value="true" />
-      </driver-properties>
-    </data-source>
-    <data-source source="LOCAL" name="Users [2]" uuid="6a52ecd0-f14e-433b-a823-b96364c01112">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:E:\Coursework-Website\resources\Users.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:U:\Computer science\Y1\Coursework\Coursework-Website3\resources\Users.db</jdbc-url>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>

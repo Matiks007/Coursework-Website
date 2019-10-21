@@ -12,7 +12,7 @@ public class CommentsController {
 
         try {
 
-            PreparedStatement ps = Server.Main.db.prepareStatement("SELECT CommentID, Username, Likes, Dislikes, Date FROM Comments");
+            PreparedStatement ps = Server.Main.db.prepareStatement("SELECT CommentID, UserID, Likes, Dislikes, Date FROM Comments");
 
             ResultSet results = ps.executeQuery();
             while (results.next()) {
@@ -37,7 +37,7 @@ public class CommentsController {
     public static void insertComment(String TUsername, int TLikes, int TDislikes, String Tdate){
 
         try {
-            PreparedStatement ps = Server.Main.db.prepareStatement("INSERT INTO Comments (Username, Likes, Dislikes, Date) VALUES (?, ?, ?,?)");
+            PreparedStatement ps = Server.Main.db.prepareStatement("INSERT INTO Comments (UserID, Likes, Dislikes, Date) VALUES (?, ?, ?,?)");
 
             ps.setString(1,  TUsername);
             ps.setInt(2,  TLikes);
@@ -57,7 +57,7 @@ public class CommentsController {
     public static void updateComment(String TUsername, int TLikes, int TDislikes, String Tdate){
 
         try {
-            PreparedStatement ps = Server.Main.db.prepareStatement("UPDATE Comments SET Username = ?, Likes = ?,  Dislikes = ?, Date = ? WHERE CommentID = ?");
+            PreparedStatement ps = Server.Main.db.prepareStatement("UPDATE Comments SET UserID = ?, Likes = ?,  Dislikes = ?, Date = ? WHERE CommentID = ?");
             ps.setString(1,  TUsername);
             ps.setInt(2,  TLikes);
             ps.setInt(3,  TDislikes);

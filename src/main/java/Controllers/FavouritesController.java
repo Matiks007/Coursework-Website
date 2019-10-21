@@ -11,7 +11,7 @@ public class FavouritesController {
 
         try {
 
-            PreparedStatement ps = Server.Main.db.prepareStatement("SELECT FavourID, User, Job FROM Favourites");
+            PreparedStatement ps = Server.Main.db.prepareStatement("SELECT FavourID, UserID, JobID FROM Favourites");
 
             ResultSet results = ps.executeQuery();
             while (results.next()) {
@@ -34,7 +34,7 @@ public class FavouritesController {
     public static void insertFavourites(String User, String Job){
 
         try {
-            PreparedStatement ps = Server.Main.db.prepareStatement("INSERT INTO Favourites (User, Job) VALUES (?, ?)");
+            PreparedStatement ps = Server.Main.db.prepareStatement("INSERT INTO Favourites (UserID, JobID) VALUES (?, ?)");
 
             ps.setString(1,  User);
             ps.setString(2,  Job);
@@ -52,7 +52,7 @@ public class FavouritesController {
     public static void updateFavourites(String User, String Job){
 
         try {
-            PreparedStatement ps = Server.Main.db.prepareStatement("UPDATE Favourites SET User = ?, Job = ? WHERE FavourID = ?");
+            PreparedStatement ps = Server.Main.db.prepareStatement("UPDATE Favourites SET UserID = ?, JobID = ? WHERE FavourID = ?");
             ps.setString(1,  User);
             ps.setString(2,  Job);
             ps.executeUpdate();

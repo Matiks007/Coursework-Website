@@ -19,21 +19,20 @@ import java.sql.DriverManager;
 
 
 public class Main {
-
-        //Global Vars
+     //Global Vars
         public static Connection db = null;
 
-         /*
+/*
+
         //Server.Main Method
         public static void main(String[] args) {
             openDatabase("Users.db");
-            UsersController.listUsers();
             JobsController.listJobs();
             CommentsController.listComments();
             closeDatabase();
 
-        }
-          */
+
+*/
 
     public static void main(String[] args) {
 

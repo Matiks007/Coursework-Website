@@ -1,12 +1,14 @@
 package Controllers;
 
+
+import Server.Main;
+import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -64,8 +66,18 @@ public class UsersController {
     }
 
     //Add to the database
-    public static void insertUser(String TUsername, String TPassword, String TEmail, String TFirstName, String TLastName, String TGender, String TDateofBirth ){
+    @POST
+    @Path("insert/")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
+    public static String insertUser(@FormDataParam("UserName") String TUsername, @FormDataParam("Password") String TPassword, @FormDataParam("Email") String TEmail, @FormDataParam("FirstName") String TFirstName, @FormDataParam("LastName") String TLastName, @FormDataParam("Gender") String TGender, @FormDataParam("DateOfBirth")String TDateofBirth ){
         try {
+            //curl -s localhost:8081/users/insert/ -F TUsername="Adeel" -F TPassword="Mypassword" -F TEmail="myown@mail.com" -F TFirstName = "Mati" -F TLastName ="Smith" -F TGender="Male" -F TDateOfBirth = "01/08/2002"
+            if (TUsername == null || TPassword == null || TEmail == null || TFirstName == null || TLastName == null || TGender == null || TDateofBirth == null) {
+                throw new Exception("One or more form data parameters are missing in the HTTP request.");
+            }
+            System.out.println("users/insert user= " + TUsername );
+
             PreparedStatement ps = Server.Main.db.prepareStatement("INSERT INTO Users (Username, Password, Email, FirstName, LastName, Gender, DateofBirth) VALUES (?, ?, ?,?,?,?,?)");
 
             ps.setString(1,  TUsername);
@@ -76,11 +88,11 @@ public class UsersController {
             ps.setString(6,  TGender);
             ps.setString(7,  TDateofBirth);
             ps.executeUpdate();
-            System.out.println("Record added to Users table");
+            return "{\"status\": \"OK\"}";
 
         } catch (Exception exception) {
-            System.out.println(exception.getMessage());
-            System.out.println("Error: Something went wrong with inserting new user to the database.");
+            System.out.println("Database error: " + exception.getMessage());
+            return "{\"error\": \"Unable to create User, please see server console for more info.\"}";
         }
 
     }

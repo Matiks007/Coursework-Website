@@ -72,7 +72,9 @@ public class UsersController {
     @Produces(MediaType.APPLICATION_JSON)
     public static String insertUser(@FormDataParam("UserName") String TUsername, @FormDataParam("Password") String TPassword, @FormDataParam("Email") String TEmail, @FormDataParam("FirstName") String TFirstName, @FormDataParam("LastName") String TLastName, @FormDataParam("Gender") String TGender, @FormDataParam("DateOfBirth")String TDateofBirth ){
         try {
-            //curl -s localhost:8081/users/insert/ -F TUsername="Adeel" -F TPassword="Mypassword" -F TEmail="myown@mail.com" -F TFirstName = "Mati" -F TLastName ="Smith" -F TGender="Male" -F TDateOfBirth = "01/08/2002"
+            //curl -s localhost:8081/users/insert/ -F TUsername="Adeel" -F TPassword="Mypassword"
+            // -F TEmail="myown@mail.com" -F TFirstName="Mati" -F TLastName="Smith" -F TGender="Male" -F TDateOfBirth="01/08/2002"
+
             if (TUsername == null || TPassword == null || TEmail == null || TFirstName == null || TLastName == null || TGender == null || TDateofBirth == null) {
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
             }

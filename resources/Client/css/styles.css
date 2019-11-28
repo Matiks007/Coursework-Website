@@ -2,6 +2,8 @@ body {
     background-color: navy;
     margin: 0;
     font-family: 'Arial', serif;
+
+
 }
 
 h1 {
@@ -14,4 +16,12 @@ h1 {
     margin: 0 auto;
     min-height: 600px;
     padding: 32px;
+}
+
+.navbar {
+    padding: 0px;
+    margin: 0px;
+    background: antiquewhite;
+    height: 100px;
+
 }

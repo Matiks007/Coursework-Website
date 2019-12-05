@@ -100,6 +100,7 @@ public class UsersController {
     }
 
     //Update the database
+
     public static void updateUser(String TUsername, String TPassword, String TEmail, String TFirstName, String TLastName, String TGender, String TDateofBirth){
 
         try {

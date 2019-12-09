@@ -79,6 +79,7 @@ public class CommentsController {
         try {
             PreparedStatement ps = Server.Main.db.prepareStatement("DELETE FROM Comments WHERE CommentID = ?");
             ps.setString(1, TCommentID);
+            ps.executeUpdate();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

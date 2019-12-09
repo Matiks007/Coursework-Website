@@ -129,6 +129,7 @@ public class UsersController {
         try {
         PreparedStatement ps = Server.Main.db.prepareStatement("DELETE FROM Users WHERE Username = ?");
         ps.setString(1, TUsername);
+        ps.executeUpdate();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

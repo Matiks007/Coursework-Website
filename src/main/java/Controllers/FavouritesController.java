@@ -72,6 +72,7 @@ public class FavouritesController {
         try {
             PreparedStatement ps = Server.Main.db.prepareStatement("DELETE FROM Favourites WHERE FavourID = ?");
             ps.setString(1, TFavourID);
+            ps.executeUpdate();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

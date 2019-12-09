@@ -74,6 +74,7 @@ public class JobsController {
         try {
             PreparedStatement ps = Server.Main.db.prepareStatement("DELETE FROM Jobs WHERE JobName = ?");
             ps.setString(1, TJobName);
+            ps.executeUpdate();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

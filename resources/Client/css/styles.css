@@ -1,9 +1,35 @@
+/*Extra small devices (portrait phones, less than 576px)*/
+/*No media query for `xs` since this is the default in Bootstrap*/
+/**/
+/*// Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+
+}
+
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+
+}
+
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+
+}
+
+/*// Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+
+}
+
+
 body {
     background-color: navy;
     margin: 0;
     font-family: 'Arial', serif;
     padding: 0;
 }
+
+
 button {
     margin-top: 60px;
 }
@@ -15,8 +41,8 @@ footer {
 }
 #content {
     background-color: white;
-    width: 1000px;
-    height: 800px;
+    width:1400px;
+    height: 1400px;
     margin: auto;
     min-height: 600px;
     padding: 32px;

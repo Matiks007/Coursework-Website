@@ -70,16 +70,18 @@ public class UsersController {
     @Path("add/")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String insertUser(@FormDataParam("UserName") String TUsername, @FormDataParam("Password") String TPassword, @FormDataParam("Email") String TEmail, @FormDataParam("FirstName") String TFirstName, @FormDataParam("LastName") String TLastName, @FormDataParam("Gender") String TGender, @FormDataParam("DateOfBirth")String TDateofBirth ){
+    public String insertUser(@FormDataParam("TUsername") String TUsername, @FormDataParam("TPassword") String TPassword, @FormDataParam("TEmail") String TEmail, @FormDataParam("TFirstName") String TFirstName, @FormDataParam("TLastName") String TLastName, @FormDataParam("TGender") String TGender, @FormDataParam("TDateOfBirth")String TDateofBirth ){
         try {
-            //curl -s localhost:8081/users/insert/ -F TUsername="Adeel" -F TPassword="Mypassword" -F TEmail="myown@mail.com" -F TFirstName="Mati" -F TLastName="Smith" -F TGender="Male" -F TDateOfBirth="01/08/2002"
+            //curl -s localhost:8081/users/add/ -F TUsername="Adeel" -F TPassword="Mypassword" -F TEmail="myown@mail.com" -F TFirstName="Mati" -F TLastName="Smith" -F TGender="Male" -F TDateOfBirth="01/08/2002"
 
             if (TUsername == null || TPassword == null || TEmail == null || TFirstName == null || TLastName == null || TGender == null || TDateofBirth == null) {
+                System.out.println(TUsername + " / " + TPassword + " / " + TEmail + " / " + TFirstName + " / " + TLastName + " / " + TGender + " / " + TDateofBirth);
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
-            }
-            System.out.println("users/insert user= " + TUsername );
 
-            PreparedStatement ps = Server.Main.db.prepareStatement("INSERT INTO Users (Username, Password, Email, FirstName, LastName, Gender, DateofBirth) VALUES (?, ?, ?,?,?,?,?)");
+            }
+            System.out.println("users/add user= " + TUsername );
+
+            PreparedStatement ps = Server.Main.db.prepareStatement("INSERT INTO Users (Username, Password, Email, FirstName, LastName, Gender, DateofBirth) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
             ps.setString(1,  TUsername);
             ps.setString(2,  TPassword);
@@ -89,6 +91,7 @@ public class UsersController {
             ps.setString(6,  TGender);
             ps.setString(7,  TDateofBirth);
             ps.executeUpdate();
+            System.out.println(TUsername + " / " + TPassword + " / " + TEmail + " / " + TFirstName + " / " + TLastName + " / " + TGender + " / " + TDateofBirth);
             return "{\"status\": \"OK\"}";
 
         } catch (Exception exception) {
@@ -103,17 +106,18 @@ public class UsersController {
     @Path("update/")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String updateUser(@FormDataParam("Username") String TUsername, @FormDataParam("Password") String TPassword, @FormDataParam("Email") String TEmail, @FormDataParam("FirstName") String TFirstName, @FormDataParam("LastName") String TLastName, @FormDataParam("Gender") String TGender, @FormDataParam("DateOfBirth") String TDateofBirth){
+    public String updateUser(@FormDataParam("TUsername") String TUsername, @FormDataParam("TPassword") String TPassword, @FormDataParam("TEmail") String TEmail, @FormDataParam("TFirstName") String TFirstName, @FormDataParam("TLastName") String TLastName, @FormDataParam("TGender") String TGender, @FormDataParam("TDateOfBirth") String TDateofBirth){
 
         try {
             //curl -s localhost:8081/users/update/ -F TUsername="Adeel" -F TPassword="Mypassword" -F TEmail="myown@mail.com" -F TFirstName="Mati" -F TLastName="Smith" -F TGender="Male" -F TDateOfBirth="01/08/2002"
 
             if (TUsername == null || TPassword == null || TEmail == null || TFirstName == null || TLastName == null || TGender == null || TDateofBirth == null) {
+                System.out.println(TUsername + " / " + TPassword + " / " + TEmail + " / " + TFirstName + " / " + TLastName + " / " + TGender + " / " + TDateofBirth);
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
             }
             System.out.println("users/insert user= " + TUsername );
 
-            PreparedStatement ps = Server.Main.db.prepareStatement("UPDATE Users SET Password = ?, Email = ?,  FirstName = ?, LastName = ?, Gender, DateofBirth WHERE UserName = ?");
+            PreparedStatement ps = Server.Main.db.prepareStatement("UPDATE Users SET Password = ?, Email = ?,  FirstName = ?, LastName = ?, Gender = ?, DateofBirth = ? WHERE UserName = ?");
             ps.setString(1,  TPassword);
             ps.setString(2,  TEmail);
             ps.setString(3,  TFirstName);
@@ -138,11 +142,12 @@ public class UsersController {
     @Path("remove/")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String deleteUser(@FormDataParam("Username") String TUsername) {
+    public String deleteUser(@FormDataParam("TUsername") String TUsername) {
 
         try {
 
             if (TUsername == null) {
+                System.out.println(TUsername);
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
             }
 

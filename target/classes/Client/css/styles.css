@@ -22,11 +22,33 @@
 }
 
 body {
-    background-color: navy;
+    background-color: #1f5c62;
     color: white;
     margin: 0;
     font-family: 'Arial', serif;
     padding: 0;
+}
+
+
+/*ID's*/
+#Title {
+    text-align: center;
+}
+
+
+/*Classes*/
+
+.header {
+    background-color: #62355f;
+}
+
+.header h3 {
+    font-size: 20px;
+}
+
+
+.footer {
+
 }
 
 

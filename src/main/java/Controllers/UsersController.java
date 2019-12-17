@@ -55,6 +55,7 @@ public class UsersController {
                 String dob = results.getString(8);
                 System.out.println(userID + " " + firstName + " " + lastName + " " + userName + " "+ password + " " + gender + " " + email + " " + dob);
             }
+
             return list.toString();
         } catch (Exception exception) {
             System.out.println("Database error: " + exception.getMessage());

@@ -22,8 +22,8 @@
 }
 
 body {
-    background-color: #1f5c62;
-    color: white;
+    background-color: #FFFFFF;
+    color: #000000;
     margin: 0;
     font-family: 'Arial', serif;
     padding: 0;
@@ -38,17 +38,30 @@ body {
 
 /*Classes*/
 
-.header {
-    background-color: #62355f;
+
+.my_web_icons-2123 {
+    height: 100px;
+    margin-top: 15px;
 }
 
-.header h3 {
-    font-size: 20px;
+hr.light {
+    border-top: 1px solid #d5d5d5;
+    width: 75%;
+    margin-top: .8rem;
+    margin-bottom: 1rem;
 }
 
+hr.light-100 {
+    width: 100%;
+    border-top: 1px solid #d5d5d5;
+    margin-top: .8rem;
+    margin-bottom: 1rem;
+}
 
-.footer {
-
+footer {
+    background-color: #3f3f3f;
+    color: #d5d5d5;
+    padding-top: 2rem;
 }
 
 

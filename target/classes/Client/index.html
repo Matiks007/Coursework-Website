@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <link rel="shortcut icon" type="image/x-icon" href=""/>
     <title>K.B.S!</title>
 
     <!-- Bootstrap css link   -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- My Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="/Client/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/styles.css">
     <!-- My custom JS   -->
-    <script src="/Client/js/index.js"></script>
+    <script src="/client/js/index.js"></script>
 
 
 </head>
@@ -23,7 +24,8 @@
 <!-- Navigation -->
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <div class="container-fluid ">
-            <a class="navbar-brand" href="#"><img src="/Client/img/logo.png" alt="Logo HERE"></a>
+            <a class="navbar-brand" href="#"><img STYLE="width: 100px" src="/client/img/logo.png" alt="Logo HERE"><h2 class="h2" style="text-align: center">K.B.S</h2></a>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,17 +43,166 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab blanditiis corporis, expedita facere labore magnam nesciunt odit placeat praesentium, ratione repellat repellendus! Amet architecto ea iusto labore odit tempora.</p>
+<!-- Image carousel-->
+
+    <div id="slides" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#slides" data-slide-to="0" class=""></li>
+            <li data-target="#slides" data-slide-to="1" class=""></li>
+            <li data-target="#slides" data-slide-to="2" class="active"></li>
+        </ul>
+    <div class="carousel-inner">
+        <div class="carousel-item">
+            <img src="img/C2.jpg" alt="Construction Big">
+            <div class="carousel-caption">
+                <h1 class="display-2">K.B.S</h1>
+                <h3 class="">Kraszewski Building Service</h3>
+                <a class="btn btn-outline-light btn-lg" href="gallery.html">Gallery</a>
+                <a class="btn btn-primary btn-lg" href="contact.html">Contact Me</a>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="img/C3.jpg" alt="Patio Big">
+        </div>
+        <div class="carousel-item active">
+            <img src="img/C1.jpeg" alt="Extension Small">
+        </div>
     </div>
+</div>
+
+    <!-- Main Content -->
+
+
+<!--  Welcome  -->
+<hr class="my4">
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">Your Local Builder</h1>
+        </div>
+        <hr>
+        <div class="col-12">
+            <p class="lead">
+                Expand with ease.
+            </p>
+            <h4>K.B.S</h4>
+        </div>
+    </div>
+</div>
+
+<!-- three columns -->
+
+<div class="container-fluid padding">
+    <h3 class="text-center">I do all sorts of jobs such as: </h3>
+    <div class="row text-center padding">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <img class="my_web_icons-2123" alt="Tiling" src="img/tiling.png">
+            <h3>Tiling</h3>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <img class="my_web_icons-2123" alt="Paint" src="img/paint_roller.png">
+            <h3>Painting</h3>
+        </div>
+        <div class="col-sm-12 col-md-4">
+            <img class="my_web_icons-2123" alt="Masonry" src="img/masonry.png">
+            <h3>Masonry work</h3>
+        </div>
+    </div>
+    <hr class="my-4">
+</div>
+
+<!-- Two Columns -->
+<div class="container-fluid padding">
+    <div class="row padding icando">
+        <div class="col-md-12 col-lg-6">
+            <h2>I can also do:</h2>
+            <ul>
+                <li>Carpentry</li>
+                <li>Patio &amp; Decking</li>
+                <li>Floors</li>
+                <li>Small Plumbing &amp; Electric works</li>
+                <li>And lots more, just call me!</li>
+            </ul>
+            <br>
+            <a href="contact.html" class="btn btn-primary">Contact me</a>
+            <a href="gallery.html" class="btn btn-secondary">Gallery</a>
+        </div>
+        <div class="col-lg-6">
+            <img class="img-fluid" src="img/fence.jpg" alt="fence.img">
+        </div>
+    </div>
+    <hr class="my-4">
+</div>
+
+<!-- Work area -->
+<div class="container-fluid padding">
+    <div class="row text-center padding">
+        <div class="col-12">
+            <h2>Location:</h2>
+            <p class="lead">I'm Located in Church Crookham, Fleet, GU52 8TJ </p>
+
+            <p class="lead">I Work in areas of Hampshire:</p>
+            <ul class="list-unstyled">
+                <li>Aldershot</li>
+                <li>Farnborough</li>
+                <li>Farnham</li>
+                <li>Fleet</li>
+                <li>Guildford</li>
+                <li>Hook</li>
+                <li>Hartley Wintney</li>
+                <li>etc...</li>
+            </ul>
+        </div>
+    </div>
+    <hr class="my-4">
+</div>
+
+<!-- Contact -->
+<div class="container-fluid padding">
+    <div class="row text-center padding contactSection">
+        <div class="col-12">
+            <h2>Contact:</h2>
+            <h4>Andrzej Kraszewski</h4>
+            <h3>Mobile: 0774-1076-975</h3>
+            <h4>or</h4>
+            <h3>E-Mail: KraszewskiBuildingService@gmail.com</h3>
+        </div>
+    </div>
+</div>
 
     <!-- Footer -->
-    <footer class="footer">
-
-        <p>CopyWrong 2019-2020</p>
-
-    </footer>
+<footer>
+    <div class="container-fluid padding">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <hr class="light">
+                <h5>Info</h5>
+                <hr class="light">
+                <p>0774-1076-975</p>
+                <p>KraszewskiBuildingService@gmail.com</p>
+                <p>153 Quetta Park</p>
+                <p>Church Crookham, Fleet, GU52 8TJ</p>
+            </div>
+            <div class="col-md-4">
+                <hr class="light">
+                <h5>K.B.S</h5>
+                <hr class="light">
+                <p>Kraszewski Building Service</p>
+            </div>
+            <div class="col-md-4">
+                <hr class="light">
+                <h5>Contact Hours</h5>
+                <hr class="light">
+                <p>Monday - Friday: 8am - 7pm</p>
+                <p>Saturday: 10am - 4pm</p>
+            </div>
+            <div class="col-12">
+                <hr class="light-100">
+                <h5>© Andrzej Kraszewski</h5>
+            </div>
+        </div>
+    </div>
+</footer>
 
     <!--  Other bootstrap requirements like JQuerry, Popper.js  -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

@@ -17,35 +17,18 @@ function loadPage() {
             jobsHTML += `<tr>` +
                 `<td>${jobs.id}</td>` +
                 `<td>${jobs.name}</td>` +
-
-
                 `<td>${jobs.description}</td>` +
                 `<td>${jobs.price}</td>` +
                 `</tr>`;
 
 
         }
-        fruitsHTML += '</table>';
+        jobsHTML += '</table>';
 
         document.getElementById("listDiv").innerHTML = fruitsHTML;
 
-        let editButtons = document.getElementsByClassName("editButton");
-        for (let button of editButtons) {
-            button.addEventListener("click", editFruit);
-        }
-
-        let deleteButtons = document.getElementsByClassName("deleteButton");
-        for (let button of deleteButtons) {
-            button.addEventListener("click", deleteFruit);
-        }
 
     });
-
-    document.getElementById("saveButton").addEventListener("click", saveEditFruit);
-    document.getElementById("cancelButton").addEventListener("click", cancelEditFruit);
-    }
-
-
 
 
 }

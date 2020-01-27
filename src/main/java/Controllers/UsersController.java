@@ -71,9 +71,13 @@ public class UsersController {
     @Path("add/")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String insertUser(@FormDataParam("TUsername") String TUsername, @FormDataParam("TPassword") String TPassword, @FormDataParam("TEmail") String TEmail, @FormDataParam("TFirstName") String TFirstName, @FormDataParam("TLastName") String TLastName, @FormDataParam("TGender") String TGender, @FormDataParam("TDateOfBirth")String TDateofBirth ){
+    public String insertUser(@FormDataParam("TUsername") String TUsername, @FormDataParam("TPassword") String TPassword, @FormDataParam("TEmail") String TEmail, @FormDataParam("TFirstName") String TFirstName, @FormDataParam("TLastName") String TLastName, @FormDataParam("TGender") String TGender, @FormDataParam("TDateOfBirth")String TDateofBirth, @CookieParam("token") String token ){
         try {
             //curl -s localhost:8081/users/add/ -F TUsername="Adeel" -F TPassword="Mypassword" -F TEmail="myown@mail.com" -F TFirstName="Mati" -F TLastName="Smith" -F TGender="Male" -F TDateOfBirth="01/08/2002"
+
+            if (!UsersController.validToken(token)) {
+                return "{\"error\": \"You don't appear to be logged in.\"}";
+            }
 
             if (TUsername == null || TPassword == null || TEmail == null || TFirstName == null || TLastName == null || TGender == null || TDateofBirth == null) {
                 System.out.println(TUsername + " / " + TPassword + " / " + TEmail + " / " + TFirstName + " / " + TLastName + " / " + TGender + " / " + TDateofBirth);
@@ -107,10 +111,14 @@ public class UsersController {
     @Path("update/")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String updateUser(@FormDataParam("TUsername") String TUsername, @FormDataParam("TPassword") String TPassword, @FormDataParam("TEmail") String TEmail, @FormDataParam("TFirstName") String TFirstName, @FormDataParam("TLastName") String TLastName, @FormDataParam("TGender") String TGender, @FormDataParam("TDateOfBirth") String TDateofBirth){
+    public String updateUser(@FormDataParam("TUsername") String TUsername, @FormDataParam("TPassword") String TPassword, @FormDataParam("TEmail") String TEmail, @FormDataParam("TFirstName") String TFirstName, @FormDataParam("TLastName") String TLastName, @FormDataParam("TGender") String TGender, @FormDataParam("TDateOfBirth") String TDateofBirth, @CookieParam("token") String token){
 
         try {
             //curl -s localhost:8081/users/update/ -F TUsername="Adeel" -F TPassword="Mypassword" -F TEmail="myown@mail.com" -F TFirstName="Mati" -F TLastName="Smith" -F TGender="Male" -F TDateOfBirth="01/08/2002"
+
+            if (!UsersController.validToken(token)) {
+                return "{\"error\": \"You don't appear to be logged in.\"}";
+            }
 
             if (TUsername == null || TPassword == null || TEmail == null || TFirstName == null || TLastName == null || TGender == null || TDateofBirth == null) {
                 System.out.println(TUsername + " / " + TPassword + " / " + TEmail + " / " + TFirstName + " / " + TLastName + " / " + TGender + " / " + TDateofBirth);
@@ -143,9 +151,12 @@ public class UsersController {
     @Path("remove/")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String deleteUser(@FormDataParam("TUsername") String TUsername) {
+    public String deleteUser(@FormDataParam("TUsername") String TUsername, @FormDataParam("TDateOfBirth") String TDateofBirth, @CookieParam("token") String token) {
 
         try {
+            if (!UsersController.validToken(token)) {
+                return "{\"error\": \"You don't appear to be logged in.\"}";
+            }
 
             if (TUsername == null) {
                 System.out.println(TUsername);

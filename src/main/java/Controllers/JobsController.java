@@ -58,10 +58,13 @@ public class JobsController {
     @Path("add/")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String insertJob(@FormDataParam("TJobName") String TJobName,@FormDataParam("TJobDescription") String TJobDescription,@FormDataParam("TPrice") Double TPrice){
+    public String insertJob(@FormDataParam("TJobName") String TJobName,@FormDataParam("TJobDescription") String TJobDescription,@FormDataParam("TPrice") Double TPrice, @CookieParam("token") String token){
 
         try {
             //curl -s localhost:8081/jobs/add -F TJobName="Painter" -F TJobDescription="The guy, whom paint things for you." -F TPrice="0.5"
+            if (!UsersController.validToken(token)) {
+                return "{\"error\": \"You don't appear to be logged in.\"}";
+            }
 
             if (TJobName == null || TJobDescription == null || TPrice == null) {
                 System.out.println(TJobName + " / " + TJobDescription + " / " + TPrice + " / ");
@@ -92,9 +95,13 @@ public class JobsController {
     @Path("update/")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String updateJob(@FormDataParam("TJobName") String TJobName,@FormDataParam("TJobDescription") String TJobDescription,@FormDataParam("TPrice") Double TPrice){
+    public String updateJob(@FormDataParam("TJobName") String TJobName,@FormDataParam("TJobDescription") String TJobDescription,@FormDataParam("TPrice") Double TPrice, @CookieParam("token") String token){
 
         try {
+            if (!UsersController.validToken(token)) {
+                return "{\"error\": \"You don't appear to be logged in.\"}";
+            }
+
             if (TJobName == null || TJobDescription == null || TPrice == null) {
                 System.out.println(TJobName + " / " + TJobDescription + " / " + TPrice + " / ");
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
@@ -123,9 +130,13 @@ public class JobsController {
     @Path("remove/")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String deleteJob(@FormDataParam("TJobName") String TJobName) {
+    public String deleteJob(@FormDataParam("TJobName") String TJobName, @CookieParam("token") String token) {
 
         try {
+            if (!UsersController.validToken(token)) {
+                return "{\"error\": \"You don't appear to be logged in.\"}";
+            }
+
             if (TJobName == null) {
                 System.out.println(TJobName);
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");

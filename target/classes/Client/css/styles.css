@@ -38,6 +38,27 @@ body {
 
 /*Classes*/
 
+.carousel-inner img {
+    height: 100%;
+    width: 100%;
+
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 20%;
+
+}
+
+.carousel-caption h1 {
+    color: #FFFFFF;
+
+}
+
+.carousel-caption h3 {
+    color: #FFFFFF;
+
+}
 
 .my_web_icons-2123 {
     height: 100px;
